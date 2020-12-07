@@ -111,3 +111,12 @@ functions:
 #     NewOutput:
 #       Description: "Description for the output"
 #       Value: "Some output value"
+
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    slim: true # Omits tests, __pycache__, *.pyc etc from dependencies
+    fileName: requirements.txt
+
