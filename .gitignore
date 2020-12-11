@@ -1,6 +1,9 @@
 # Mac OS
 **/.DS_Store
 
+# Ignore Headless Chrome because it is too big for GitHub
+chrome-layer/headless-chromium
+
 # Distribution / packaging
 .Python
 env/

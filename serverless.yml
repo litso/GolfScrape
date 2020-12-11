@@ -22,7 +22,7 @@ frameworkVersion: '2'
 
 provider:
   name: aws
-  runtime: python3.8
+  runtime: python3.7
 
 # you can overwrite defaults here
 #  stage: dev
@@ -60,6 +60,9 @@ provider:
 functions:
   hello:
     handler: handler.hello
+    layers:
+      - {Ref: ChromeLambdaLayer}
+    timeout: 30
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -119,4 +122,8 @@ custom:
   pythonRequirements:
     slim: true # Omits tests, __pycache__, *.pyc etc from dependencies
     fileName: requirements.txt
+
+layers:
+  chrome:
+    path: chrome-layer
 
