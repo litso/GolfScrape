@@ -1,3 +1,4 @@
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
@@ -43,12 +44,15 @@ def __get_default_chrome_options():
         '--use-gl=swiftshader',
         '--use-mock-keychain',
         '--single-process',
-        '--headless']
+        '--headless'
+    ]
 
     for argument in lambda_options:
         chrome_options.add_argument(argument)          
 
-    chrome_options.binary_location = "/opt/headless-chromium" 
+
+    if 'LAMBDA_TASK_ROOT' in os.environ:
+        chrome_options.binary_location = "/opt/headless-chromium"
 
     return chrome_options
 
