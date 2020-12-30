@@ -5,6 +5,29 @@ If one is found, sends a text message via [AWS pinpoint](https://aws.amazon.com/
 Setup and deployment to AWS is done via Serverless.
 
 # Setup
+
+## Install Serveless
+
+Install Node
+
+```
+npm install -g serverless
+```
+
+Check the Serverless Version
+
+```
+serverless --version
+2.16.1
+```
+
+Install Python Requirements Plugin
+
+```
+sls plugin install -n serverless-python-requirements
+```
+
+## Headless Chrome
 In order to use headless chrome on AWS Lambda, we need to configure a layer to include both of the binaries. This will defer on your local system since the binaries will be different.
 
 ## Chrome Layer
