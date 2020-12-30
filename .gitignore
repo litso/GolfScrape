@@ -4,6 +4,9 @@
 # Ignore Headless Chrome because it is too big for GitHub
 chrome-layer/headless-chromium
 
+# Python
+__pycache__
+
 # Distribution / packaging
 .Python
 env/
