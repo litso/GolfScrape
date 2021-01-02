@@ -12,4 +12,4 @@ class HelperTest(unittest.TestCase):
 	  d = datetime.strptime(startdate, '%m-%d-%Y')
 
 	  x = Date().nextSaturday()
-	  print(x)
+	  self.assertEqual(x, "01-02-2021")

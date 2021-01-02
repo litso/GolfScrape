@@ -48,3 +48,10 @@ Sym link your local chrome to the right location.
 cd /opt
 ln -s headless-chromium "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 ```
+
+# Run Tests Locally
+
+```
+env PYTHONPATH=. pytest
+```
+
