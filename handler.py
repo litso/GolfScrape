@@ -1,8 +1,6 @@
 import os
 import logging
 import uuid
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from scraper import Scraper
 
 logger = logging.getLogger()
