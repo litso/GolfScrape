@@ -7,6 +7,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
+from helpers import Date
+
 logger = logging.getLogger()
 
 class Scraper:
@@ -148,7 +150,9 @@ class Scraper:
         date.send_keys(Keys.BACKSPACE)
         date.send_keys(Keys.BACKSPACE)
         date.send_keys(Keys.BACKSPACE)
-        date.send_keys('12/26/2020')
+        
+        search_date = Date().nextSaturday()
+        date.send_keys(search_date)
         
         searchButton = self.__wait_for(driver, '//Button[text()="Search"]', By.XPATH)
         searchButton.click()
@@ -170,7 +174,10 @@ class Scraper:
 
         driver.save_screenshot(filename)
         driver.quit()
-        return results
+        return {
+            "results": results,
+            "search_date": search_date
+        }
 
     def close(self):
         # Remove specific tmp dir of this "run"
