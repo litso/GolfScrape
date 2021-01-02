@@ -24,7 +24,9 @@ serverless --version
 Install Python Requirements Plugin
 
 ```
-sls plugin install -n serverless-python-requirements
+npm install
+# Use should not need to install the whole pluggin again
+# sls plugin install -n serverless-python-requirements
 ```
 
 ## Headless Chrome
