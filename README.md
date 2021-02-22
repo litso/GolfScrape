@@ -37,9 +37,13 @@ source env/bin/activate
 ## Install Serverless
 
 
-### Install Node
+### Install Node and Serverless
 
-Check you node version. As of this writing i'm using 7.3.
+Use brew to install node.
+
+Check you node version. The required NPM version is locked to 7.3 in `packages.json`.
+
+Install Serverless Globally
 
 ```
 npm install -g serverless
@@ -52,7 +56,7 @@ serverless --version
 2.16.1
 ```
 
-Install Python Requirements Plugin
+Install Packages and the Python Requirements Plugin
 
 ```
 npm install
