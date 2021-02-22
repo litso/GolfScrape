@@ -81,7 +81,15 @@ cd /opt
 ln -s headless-chromium "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 ```
 
+# Invoke Locally
+
+```
+sls invoke local --function scrape_times --verbose
+```
+
 # Run Tests Locally
+
+Install pytest if it is not already installed.
 
 ```
 env PYTHONPATH=. pytest

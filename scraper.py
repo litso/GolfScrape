@@ -7,7 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-from helpers import Date
+from helpers import *
 
 logger = logging.getLogger()
 
@@ -138,22 +138,16 @@ class Scraper:
         course = self.__wait_for(driver, '//label[text()="Rancho Park"]', By.XPATH)
         course.click()
 
-        date = self.__wait_for(driver, '//input[@type="text"]', By.XPATH)
+        dateInput = self.__wait_for(driver, '//input[@type="text"]', By.XPATH)
 
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
+        dateInput.click()
+
+        for _ in range(1, 11):
+            dateInput.send_keys(Keys.BACKSPACE)
         
-        search_date = Date().nextSaturday()
-        date.send_keys(search_date)
-        
+        search_date = nextSaturday()
+        dateInput.send_keys(search_date)
+
         searchButton = self.__wait_for(driver, '//Button[text()="Search"]', By.XPATH)
         searchButton.click()
 
@@ -163,11 +157,15 @@ class Scraper:
         
         if self.__did_load_results(driver):
             print("Tee Times Found")
-            result = { }
             elements = driver.find_elements_by_xpath('//ul[@class="tee-time-block"]/li')
             for element in elements:
+                result = { }
+                #print(element.get_attribute('outerHTML'))
                 result["course"] = element.find_element_by_css_selector('div.course span').text
                 result["time"] = element.find_element_by_css_selector('span.time').text
+                result["price"] = element.find_element_by_css_selector('div.price strong').text
+                # result["price"] = element.find_element_by_xpath('./div[@class="price"]/span').text
+
                 results.append(result)
         else:
             print("No Tee Times Found")
