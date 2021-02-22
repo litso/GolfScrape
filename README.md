@@ -89,6 +89,8 @@ sls invoke local --function scrape_times --verbose
 
 # Run Tests Locally
 
+Install pytest if it is not already installed.
+
 ```
 env PYTHONPATH=. pytest
 ```
