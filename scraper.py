@@ -7,7 +7,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 
-from helpers import Date
+from helpers import *
 
 logger = logging.getLogger()
 
@@ -138,21 +138,21 @@ class Scraper:
         course = self.__wait_for(driver, '//label[text()="Rancho Park"]', By.XPATH)
         course.click()
 
-        date = self.__wait_for(driver, '//input[@type="text"]', By.XPATH)
+        dateInput = self.__wait_for(driver, '//input[@type="text"]', By.XPATH)
 
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
-        date.send_keys(Keys.BACKSPACE)
+        dateInput.send_keys(Keys.BACKSPACE)
+        dateInput.send_keys(Keys.BACKSPACE)
+        dateInput.send_keys(Keys.BACKSPACE)
+        dateInput.send_keys(Keys.BACKSPACE)
+        dateInput.send_keys(Keys.BACKSPACE)
+        dateInput.send_keys(Keys.BACKSPACE)
+        dateInput.send_keys(Keys.BACKSPACE)
+        dateInput.send_keys(Keys.BACKSPACE)
+        dateInput.send_keys(Keys.BACKSPACE)
+        dateInput.send_keys(Keys.BACKSPACE)
         
-        search_date = Date().nextSaturday()
-        date.send_keys(search_date)
+        search_date = nextSaturday()
+        dateInput.send_keys(search_date)
         
         searchButton = self.__wait_for(driver, '//Button[text()="Search"]', By.XPATH)
         searchButton.click()
