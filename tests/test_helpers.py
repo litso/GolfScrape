@@ -12,4 +12,4 @@ class HelperTest(unittest.TestCase):
 	  friday = datetime.strptime(startdate, '%m-%d-%Y')
 
 	  saturday = nextSaturday(friday)
-	  self.assertEqual(saturday, "01-02-2021")
+	  self.assertEqual(saturday, "01/02/2021")
