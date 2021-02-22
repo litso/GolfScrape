@@ -6,7 +6,36 @@ Setup and deployment to AWS is done via Serverless.
 
 # Setup
 
+## Setup Python
+
+
+### Install Pyenv
+
+```
+brew update && brew upgrade pyenv
+# Will install correct version of python specified in .python-version
+pyenv install
+```
+
+### Create the Virtual Environment
+
+Create the environment
+```
+python3 -m venv env
+```
+
+And Activate It
+
+```
+# Bash or ZSH
+source env/bin/activate
+
+# or Fish
+. env/bin/activate.fish
+```
+
 ## Install Serveless
+
 
 Install Node
 
@@ -25,7 +54,7 @@ Install Python Requirements Plugin
 
 ```
 npm install
-# Use should not need to install the whole pluggin again
+# You should not need to install the whole pluggin again
 # sls plugin install -n serverless-python-requirements
 ```
 
