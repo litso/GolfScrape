@@ -34,10 +34,12 @@ source env/bin/activate
 . env/bin/activate.fish
 ```
 
-## Install Serveless
+## Install Serverless
 
 
-Install Node
+### Install Node
+
+Check you node version. As of this writing i'm using 7.3.
 
 ```
 npm install -g serverless
@@ -54,9 +56,10 @@ Install Python Requirements Plugin
 
 ```
 npm install
-# You should not need to install the whole pluggin again
-# sls plugin install -n serverless-python-requirements
+sls plugin install -n serverless-python-requirements
 ```
+
+Note if you see an error about an unsupported engine, its because our package.json locks the NPM version to 7.3. Either install that version of NPM or use something like NVM to install the correct version.
 
 ## Headless Chrome
 In order to use headless chrome on AWS Lambda, we need to configure a layer to include both of the binaries. This will defer on your local system since the binaries will be different.
