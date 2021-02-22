@@ -81,6 +81,12 @@ cd /opt
 ln -s headless-chromium "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 ```
 
+# Invoke Locally
+
+```
+sls invoke local --function scrape_times --verbose
+```
+
 # Run Tests Locally
 
 ```

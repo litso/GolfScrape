@@ -58,8 +58,8 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  scrape_times:
+    handler: handler.scrape_times
     layers:
       - {Ref: ChromeLambdaLayer}
     timeout: 30
@@ -88,7 +88,7 @@ functions:
 #            detail:
 #              state:
 #                - pending
-#      - cloudwatchLog: '/aws/lambda/hello'
+#      - cloudwatchLog: '/aws/lambda/scrape_times'
 #      - cognitoUserPool:
 #          pool: MyUserPool
 #          trigger: PreSignUp
@@ -97,7 +97,7 @@ functions:
 #          priority: 1
 #          conditions:
 #            host: example.com
-#            path: /hello
+#            path: /scrape_times
 
 #    Define function environment variables here
 #    environment:
