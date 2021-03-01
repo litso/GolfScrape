@@ -23,6 +23,13 @@ frameworkVersion: '2'
 provider:
   name: aws
   runtime: python3.7
+  environment:
+    S3_BUCKET: tee-times
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "s3:*"
+      Resource: ["arn:aws:s3:::${self:provider.environment.S3_BUCKET}/*"]
 
 # you can overwrite defaults here
 #  stage: dev

@@ -2,6 +2,7 @@ import os
 import logging
 import uuid
 from scraper import Scraper
+from tee_times import TeeTimes
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -19,6 +20,9 @@ def scrape_times(event, context):
     results = driver.scrape(url, '/tmp/{}-full.png'.format(screenshot_file))
     
     driver.close()
+
+    t = TeeTimes(results, 'results.json')
+    t.upload()
 
     response = {
         "statusCode": 200,
