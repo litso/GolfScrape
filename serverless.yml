@@ -55,14 +55,11 @@ provider:
 #  environment:
 #    variable1: value1
 
-# you can add packaging information here
-#package:
-#  include:
-#    - include-me.py
-#    - include-me-dir/**
-#  exclude:
-#    - exclude-me.py
-#    - exclude-me-dir/**
+package:
+  exclude:
+    - ./*/**
+  include:
+    - ./*.py
 
 functions:
   scrape_times:
@@ -70,6 +67,7 @@ functions:
     layers:
       - {Ref: ChromeLambdaLayer}
     timeout: 30
+
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
@@ -126,7 +124,19 @@ plugins:
   - serverless-python-requirements
 custom:
   pythonRequirements:
+    zip: false
     slim: true # Omits tests, __pycache__, *.pyc etc from dependencies
+    noDeploy:
+      - boto3
+      - botocore
+      - docutils
+      - jmespath
+      - pip
+      - python-dateutil
+      - s3transfer
+      - setuptools
+      - six
+      - urllib3
     fileName: requirements.txt
 
 layers:
