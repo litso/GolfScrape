@@ -29,3 +29,9 @@ var/
 .serverless
 node_modules/
 
+# Zipped Requirements
+.requirements.zip
+
+
+# Editor Junk
+.vscode

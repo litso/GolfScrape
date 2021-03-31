@@ -8,9 +8,8 @@ import json
 logger = logging.getLogger()
 
 class TeeTimes:
-    S3_BUCKET = "tee-times"
-
     def __init__(self, results, key):
+        self.S3_BUCKET = "tee-times"
         self.results = results
         self.s3_key = key
 

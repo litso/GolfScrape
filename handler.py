@@ -3,6 +3,7 @@ import logging
 import uuid
 from scraper import Scraper
 from tee_times import TeeTimes
+from helpers import *
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
@@ -21,7 +22,7 @@ def scrape_times(event, context):
     
     driver.close()
 
-    t = TeeTimes(results, 'results.json')
+    t = TeeTimes(results, results_filename())
     t.upload()
 
     response = {

@@ -85,6 +85,13 @@ cd /opt
 ln -s headless-chromium "/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 ```
 
+# Create S3 Bucket
+Golf Scrape Stores Scraping Results in an S3 Bucket named `tee-times`.
+
+```
+aws  s3 mb s3://tee-times
+```
+
 # Invoke Locally
 
 ```
