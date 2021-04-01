@@ -17,13 +17,15 @@ class HelperTest(unittest.TestCase):
 
   def test_file_name(self):
       time_zone = tz.gettz("America/Los_Angeles")
+      friday = datetime(2021, 1, 1, 0, tzinfo=time_zone)
 
-      startdate = "01-01-2021"
-      friday = datetime.strptime(startdate, '%m-%d-%Y')
-      friday.replace(tzinfo=time_zone)
+      friday_in_system_tz = friday.astimezone().isoformat() 
 
       result = results_filename(friday)
-      self.assertEqual(result, "rancho_park-2021-01-01T00:00:00-08:00.json")
+      self.assertEqual(
+        result, 
+        'rancho_park-{}.json'.format(friday.astimezone().isoformat())
+      )
 
   def test_time_in_los_angeles(self):
       time = time_in_los_angeles()
